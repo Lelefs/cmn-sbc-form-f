@@ -96,7 +96,7 @@ export default () => {
 
     const numeroInscricoes = response.data;
 
-    if (numeroInscricoes > 150) {
+    if (numeroInscricoes > 160) {
       alert('Não foi possível completar sua inscrição. Vagas esgotadas.');
       setLoader(false);
       return;
@@ -193,7 +193,7 @@ export default () => {
             onChange={handleChangeHorarioCulto}
           />
           <label htmlFor="cultoManhaInput">
-            Manhã, check-in às 9h, início às 10h
+            Manhã, check-in às 9h, início às 09h30
           </label>
         </DivCheckbox>
 
@@ -206,7 +206,7 @@ export default () => {
             onChange={handleChangeHorarioCulto}
           />
           <label htmlFor="cultoNoiteInput">
-            Noite, check-in às 17h, início às 18h
+            Noite, check-in às 17h30, início às 18h
           </label>
         </DivCheckbox>
       </DivLabelInput>

@@ -27,7 +27,7 @@ export default () => {
           recomendamos a participação presencial para crianças acima de 11 anos.
         </li>
         <li>
-          Limite de 150 inscritos por culto, incluindo staff, diaconato e
+          Limite de 160 inscritos por culto, incluindo staff, diaconato e
           ministério de louvor.
         </li>
         <li>Inscrições somente até 23h59 desta sexta-feira, 31 de julho.</li>
