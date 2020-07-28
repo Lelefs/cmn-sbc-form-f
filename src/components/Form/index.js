@@ -14,7 +14,10 @@ import {
 } from './styles';
 
 export default () => {
+  const proximoDia = 2;
+
   const history = useHistory();
+  const [loader, setLoader] = useState(false);
 
   const [email, setEmail] = useState('');
   const [emailIsFocused, setEmailIsFocused] = useState(false);
@@ -68,14 +71,34 @@ export default () => {
     }
   }
 
-  const handleSubmitForm = event => {
+  const handleSubmitForm = async event => {
     event.preventDefault();
+    const hoje = new Date().getDate();
+
+    if (!(hoje >= 27 && hoje <= 31)) {
+      alert('Não foi possível completar sua inscrição. Já expirou o prazo.');
+      return;
+    }
 
     const emailValido = validate(email);
 
     if (!emailValido) {
       alert('Insira um e-mail válido');
       setEmailIsErrored(true);
+      return;
+    }
+
+    setLoader(true);
+
+    const response = await api.get(
+      `/form/contagem/${proximoDia}/${horarioCulto}`,
+    );
+
+    const numeroInscricoes = response.data;
+
+    if (numeroInscricoes > 150) {
+      alert('Não foi possível completar sua inscrição. Vagas esgotadas.');
+      setLoader(false);
       return;
     }
 
@@ -87,10 +110,12 @@ export default () => {
         horario: horarioCulto,
       })
       .then(res => {
+        setLoader(false);
         history.push('/finalizacao');
       })
       .catch(e => {
         alert(e.response.data);
+        setLoader(false);
       });
   };
 
@@ -196,7 +221,7 @@ export default () => {
           horarioCulto === ''
         }
       >
-        Enviar
+        {loader ? 'Aguarde...' : 'Enviar'}
       </Button>
     </Container>
   );

@@ -13,12 +13,12 @@ export default () => {
           à quantidade permitida por lei.
         </li>
         <li>
-          Em caso de dúvidas, entre em contato pelo nosso WhatsApp
-          (11)93262-1680.
+          Em caso de dúvidas, entre em contato pelo nosso WhatsApp (11)
+          93262-1680.
         </li>
         <li>
           Os cultos serão realizados de portas fechadas e as portas fecharão
-          pontualmente às 10h e 18h, respectivamente. Ambos os cultos serão
+          pontualmente às 09h30 e 18h, respectivamente. Ambos os cultos serão
           transmitidos ao vivo em nosso canal do Youtube (Comunidade da Graça
           SBC).
         </li>
@@ -27,7 +27,7 @@ export default () => {
           recomendamos a participação presencial para crianças acima de 11 anos.
         </li>
         <li>
-          Limite de 160 inscritos por culto, incluindo staff, diaconato e
+          Limite de 150 inscritos por culto, incluindo staff, diaconato e
           ministério de louvor.
         </li>
         <li>Inscrições somente até 23h59 desta sexta-feira, 31 de julho.</li>
@@ -40,8 +40,8 @@ export default () => {
           para distanciamento e higienização.
         </li>
         <li>
-          Recomendamos que idosos, crianças e pessoas que fazem parte do grupo
-          de risco de Covid-19 não participem das reuniões presenciais.
+          Crianças e idosos, de acordo com o decreto, não podem participar. (De
+          acordo com o decreto municipal 211.18)
         </li>
         <li>*Obrigatório</li>
       </ul>
