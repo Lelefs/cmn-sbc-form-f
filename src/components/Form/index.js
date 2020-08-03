@@ -14,7 +14,9 @@ import {
 } from './styles';
 
 export default () => {
-  const proximoDia = 2;
+  const proximoDia = 9;
+  const primeiroDia = proximoDia - 5;
+  const ultimoDia = proximoDia - 2;
 
   const history = useHistory();
   const [loader, setLoader] = useState(false);
@@ -75,7 +77,7 @@ export default () => {
     event.preventDefault();
     const hoje = new Date().getDate();
 
-    if (!(hoje >= 27 && hoje <= 31)) {
+    if (!(hoje >= primeiroDia && hoje <= ultimoDia)) {
       alert('Não foi possível completar sua inscrição. Já expirou o prazo.');
       return;
     }
@@ -94,9 +96,9 @@ export default () => {
       `/form/contagem/${proximoDia}/${horarioCulto}`,
     );
 
-    const numeroInscricoes = response.data;
+    const { total } = response.data;
 
-    if (numeroInscricoes > 160) {
+    if (total > 160) {
       alert('Não foi possível completar sua inscrição. Vagas esgotadas.');
       setLoader(false);
       return;

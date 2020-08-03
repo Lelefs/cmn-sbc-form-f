@@ -9,7 +9,7 @@ export default () => {
       <ul>
         <li>
           Atendendo às normas de segurança em nossa cidade, será necessário
-          agendar a sua presença em um dos cultos deste domingo 02/08, limitando
+          agendar a sua presença em um dos cultos deste domingo 09/08, limitando
           à quantidade permitida por lei.
         </li>
         <li>
@@ -30,7 +30,7 @@ export default () => {
           Limite de 160 inscritos por culto, incluindo staff, diaconato e
           ministério de louvor.
         </li>
-        <li>Inscrições somente até 23h59 desta sexta-feira, 31 de julho.</li>
+        <li>Inscrições somente até 23h59 desta sexta-feira, 07 de Agosto.</li>
         <li>
           Selecione apenas um horário de culto para dar a oportunidade a outros
           irmãos, pois as vagas são limitadas.

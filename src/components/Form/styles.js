@@ -21,6 +21,12 @@ export const DivLabelInput = styled.div`
       color: #d93025;
     }
   }
+
+  @media only screen and (max-width: 500px) {
+    label {
+      font-size: 14px;
+    }
+  }
 `;
 
 export const DivInput = styled.div`

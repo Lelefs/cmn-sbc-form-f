@@ -14,7 +14,7 @@ export const ImageDiv = styled.div`
   background-image: url(${img});
   border-radius: 8px;
   max-height: 22.390243902439025vw;
-  max-width: 90vw;
+  max-width: 88vw;
   height: 159.21951219512195px;
   width: 650px;
   background-size: cover;
