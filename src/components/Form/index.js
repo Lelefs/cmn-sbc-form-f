@@ -113,7 +113,7 @@ export default () => {
       })
       .then(res => {
         setLoader(false);
-        history.push('/finalizacao');
+        history.push('/finalizacao', { origem: 'cultoPresencial' });
       })
       .catch(e => {
         alert(e.response.data);

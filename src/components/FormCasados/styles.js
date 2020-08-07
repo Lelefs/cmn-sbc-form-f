@@ -7,10 +7,20 @@ export const Container = styled.form`
   border-radius: 8px;
   background-color: #fff;
   border: 1px solid #dadce0;
+
+  h1 {
+    font-weight: 300;
+    font-size: 1.9rem;
+    margin-bottom: 25px;
+  }
+
+  & + & {
+    margin-top: 15px;
+  }
 `;
 
 export const DivLabelInput = styled.div`
-  margin-bottom: 40px;
+  margin-bottom: 25px;
 
   label {
     letter-spacing: 0.1px;
@@ -37,7 +47,7 @@ export const DivInput = styled.div`
   align-items: center;
   border: 2px solid #666360;
   color: #666360;
-  margin: 16px 0;
+  margin: 10px 0;
 
   ${props =>
     props.isFocused &&
@@ -57,6 +67,14 @@ export const DivInput = styled.div`
     css`
       border-color: #c53030;
       color: #c53030;
+    `}
+
+  ${props =>
+    props.readOnly &&
+    css`
+      color: #666360;
+      border-color: #666360;
+      opacity: 0.5;
     `}
 
   svg {
@@ -81,13 +99,9 @@ export const DivInput = styled.div`
 `;
 
 export const DivCheckbox = styled.div`
-  margin-top: 16px;
   display: flex;
   align-items: center;
-
-  & + & {
-    margin-top: 10px;
-  }
+  margin-bottom: 40px;
 
   input {
     -webkit-appearance: none;
@@ -99,7 +113,7 @@ export const DivCheckbox = styled.div`
     border: 1px solid #666360;
     color: #fff;
     border-radius: 50%;
-    margin-right: 15px;
+    margin: 0 5px 0 15px;
     transition: all 0.2s;
 
     &:hover {
@@ -126,6 +140,12 @@ export const DivCheckbox = styled.div`
 
     &:focus {
       outline: none !important;
+    }
+  }
+
+  @media only screen and (max-width: 500px) {
+    p {
+      width: 100px;
     }
   }
 `;
