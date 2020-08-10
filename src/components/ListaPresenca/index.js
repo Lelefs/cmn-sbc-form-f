@@ -6,7 +6,7 @@ import { Container } from './style';
 import { FiCheck } from 'react-icons/fi';
 
 export default ({ horarioCulto }) => {
-  const proximoDia = 9;
+  const proximoDia = 16;
 
   const [usuarios, setUsuarios] = useState([]);
   const [loader, setLoader] = useState(false);
