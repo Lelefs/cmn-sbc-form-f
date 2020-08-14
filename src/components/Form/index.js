@@ -90,6 +90,11 @@ export default () => {
       return;
     }
 
+    if (horarioCulto === 'manha') {
+      alert('Não foi possível completar sua inscrição. Vagas esgotadas.');
+      return;
+    }
+
     setLoader(true);
 
     const response = await api.get(
