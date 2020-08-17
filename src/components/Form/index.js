@@ -14,7 +14,7 @@ import {
 } from './styles';
 
 export default () => {
-  const proximoDia = 16;
+  const proximoDia = 23;
   const primeiroDia = proximoDia - 5;
   const ultimoDia = proximoDia - 2;
 
@@ -87,11 +87,6 @@ export default () => {
     if (!emailValido) {
       alert('Insira um e-mail válido');
       setEmailIsErrored(true);
-      return;
-    }
-
-    if (horarioCulto === 'manha') {
-      alert('Não foi possível completar sua inscrição. Vagas esgotadas.');
       return;
     }
 
