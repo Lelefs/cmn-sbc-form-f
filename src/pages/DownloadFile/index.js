@@ -18,16 +18,22 @@ export default () => {
         return a.nome1 < b.nome1 ? -1 : a.nome1 > b.nome1 ? 1 : 0;
       });
 
-      await response.data.forEach(ins => {
-        delete ins._id;
-        delete ins.createdAt;
-        delete ins.updatedAt;
-        delete ins.__v;
-      });
+      const novoArray = await response.data.map(inscricao => ({
+        'Nome dele': inscricao.nome1,
+        'E-mail dele': inscricao.email1,
+        'Ele participa célula': inscricao.participaCelula1,
+        'Célula dele': inscricao.celula1,
+        Baizado: inscricao.batizado1,
+        'Nome dela': inscricao.nome2,
+        'E-mail dela': inscricao.email2,
+        'Ela participa célula': inscricao.participaCelula2,
+        'Célula dela': inscricao.celula2,
+        Baizada: inscricao.batizado2,
+      }));
 
       setInscricoes(state => response.data);
 
-      const ws = XLSX.utils.json_to_sheet(response.data);
+      const ws = XLSX.utils.json_to_sheet(novoArray);
       const wb = { Sheets: { data: ws }, SheetNames: ['data'] };
       const excelBuffer = XLSX.write(wb, { bookType: 'xlsx', type: 'array' });
       const data = new Blob([excelBuffer], { type: fileType });
