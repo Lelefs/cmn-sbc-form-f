@@ -14,7 +14,7 @@ import {
 } from './styles';
 
 export default () => {
-  const proximoDia = 23;
+  const proximoDia = 30;
   const primeiroDia = proximoDia - 5;
   const ultimoDia = proximoDia - 2;
 

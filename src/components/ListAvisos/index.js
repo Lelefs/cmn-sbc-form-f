@@ -3,7 +3,7 @@ import React from 'react';
 import { Container } from './styles';
 
 export default () => {
-  const proximoDia = 23;
+  const proximoDia = 30;
 
   return (
     <Container>
