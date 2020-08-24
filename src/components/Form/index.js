@@ -15,7 +15,7 @@ import {
 
 export default () => {
   const proximoDia = 30;
-  const primeiroDia = proximoDia - 5;
+  const primeiroDia = proximoDia - 6;
   const ultimoDia = proximoDia - 2;
 
   const history = useHistory();
