@@ -21,11 +21,13 @@ export default () => {
       const novoArray = await response.data.map(inscricao => ({
         'Nome dele': inscricao.nome1,
         'E-mail dele': inscricao.email1,
+        'Telefone dele': inscricao.telefone1,
         'Ele participa célula': inscricao.participaCelula1,
         'Célula dele': inscricao.celula1,
         Baizado: inscricao.batizado1,
         'Nome dela': inscricao.nome2,
         'E-mail dela': inscricao.email2,
+        'Telefone dela': inscricao.telefone2,
         'Ela participa célula': inscricao.participaCelula2,
         'Célula dela': inscricao.celula2,
         Baizada: inscricao.batizado2,

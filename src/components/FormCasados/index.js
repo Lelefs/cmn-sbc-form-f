@@ -164,9 +164,11 @@ export default () => {
 
   const handleSubmitForm = event => {
     event.preventDefault();
-    const hoje = new Date().getDate();
+    alert('Não foi possível completar sua inscrição. Já expirou o prazo.');
+      return;
+    /* const hoje = new Date().getDate();
 
-    if (hoje > 26) {
+    if (hoje > 25) {
       alert('Não foi possível completar sua inscrição. Já expirou o prazo.');
       return;
     }
@@ -212,7 +214,7 @@ export default () => {
         alert(e.response.data.error);
         console.log(e.response.data);
         setLoader(false);
-      });
+      }); */
   };
 
   return (
