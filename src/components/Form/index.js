@@ -14,8 +14,8 @@ import {
 } from './styles';
 
 export default () => {
-  const proximoDia = 30;
-  const primeiroDia = proximoDia - 6;
+  const proximoDia = 6;
+  const primeiroDia = proximoDia - 5;
   const ultimoDia = proximoDia - 2;
 
   const history = useHistory();
@@ -98,7 +98,7 @@ export default () => {
 
     const { total } = response.data;
 
-    if (total > 160) {
+    if (total >= 160) {
       alert('Não foi possível completar sua inscrição. Vagas esgotadas.');
       setLoader(false);
       return;
@@ -195,7 +195,7 @@ export default () => {
             onChange={handleChangeHorarioCulto}
           />
           <label htmlFor="cultoManhaInput">
-            Manhã, check-in às 9h, início às 09h30
+            Manhã, check-in às 09h, início às 09h30
           </label>
         </DivCheckbox>
 

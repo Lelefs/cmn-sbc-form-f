@@ -3,7 +3,7 @@ import React from 'react';
 import { Container } from './styles';
 
 export default () => {
-  const proximoDia = 30;
+  const proximoDia = 6;
 
   return (
     <Container>
@@ -11,8 +11,8 @@ export default () => {
       <ul>
         <li>
           Atendendo às normas de segurança em nossa cidade, será necessário
-          agendar a sua presença em um dos cultos deste domingo {proximoDia}/08,
-          limitando à quantidade permitida por lei.
+          agendar a sua presença em um dos cultos deste domingo 0{proximoDia}
+          /09, limitando à quantidade permitida por lei.
         </li>
         <li>
           Em caso de dúvidas, entre em contato pelo nosso WhatsApp (11)
@@ -34,7 +34,7 @@ export default () => {
         </li>
         <li>
           Inscrições somente até 23h59 desta sexta-feira, {proximoDia - 2} de
-          Agosto.
+          Setembro.
         </li>
         <li>
           Selecione apenas um horário de culto para dar a oportunidade a outros
