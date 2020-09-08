@@ -3,7 +3,7 @@ import React from 'react';
 import { Container } from './styles';
 
 export default () => {
-  const proximoDia = 6;
+  const proximoDia = 13;
 
   return (
     <Container>
@@ -11,7 +11,7 @@ export default () => {
       <ul>
         <li>
           Atendendo às normas de segurança em nossa cidade, será necessário
-          agendar a sua presença em um dos cultos deste domingo 0{proximoDia}
+          agendar a sua presença em um dos cultos deste domingo {proximoDia}
           /09, limitando à quantidade permitida por lei.
         </li>
         <li>
