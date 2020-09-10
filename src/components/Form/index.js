@@ -16,7 +16,6 @@ import {
 export default () => {
   const proximoDia = 13;
   const primeiroDia = proximoDia - 5;
-  const ultimoDia = proximoDia - 2;
 
   const history = useHistory();
   const [loader, setLoader] = useState(false);
@@ -77,7 +76,7 @@ export default () => {
     event.preventDefault();
     const hoje = new Date().getDate();
 
-    if (!(hoje >= primeiroDia && hoje <= ultimoDia)) {
+    if (!(hoje >= primeiroDia && hoje <= proximoDia)) {
       alert('Não foi possível completar sua inscrição. Já expirou o prazo.');
       return;
     }
@@ -98,7 +97,7 @@ export default () => {
 
     const { total } = response.data;
 
-    if (total >= 160) {
+    if (total >= 185) {
       alert('Não foi possível completar sua inscrição. Vagas esgotadas.');
       setLoader(false);
       return;
