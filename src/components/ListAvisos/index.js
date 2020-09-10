@@ -3,7 +3,6 @@ import React from 'react';
 import { Container } from './styles';
 
 export default () => {
-  const proximoDia = 13;
 
   return (
     <Container>
@@ -11,8 +10,8 @@ export default () => {
       <ul>
         <li>
           Atendendo às normas de segurança em nossa cidade, será necessário
-          agendar a sua presença em um dos cultos deste domingo {proximoDia}
-          /09, limitando à quantidade permitida por lei.
+          agendar a sua presença em um dos cultos deste domingo 13/09,
+          limitando à quantidade permitida por lei.
         </li>
         <li>
           Em caso de dúvidas, entre em contato pelo nosso WhatsApp (11)
@@ -31,10 +30,6 @@ export default () => {
         <li>
           Limite de 185 inscritos por culto, incluindo staff, diaconato e
           ministério de louvor.
-        </li>
-        <li>
-          Inscrições somente até 23h59 desta sexta-feira, {proximoDia - 2} de
-          Setembro.
         </li>
         <li>
           Selecione apenas um horário de culto para dar a oportunidade a outros
