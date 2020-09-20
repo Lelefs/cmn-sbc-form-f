@@ -6,11 +6,11 @@ export default props => {
 
   return (
     <Container>
-      {origem === 'casados' ? <ImageDivCasados /> : <ImageDiv />}
+      {origem === 'comunaKids' ? <ImageDivCasados /> : <ImageDiv />}
 
       <MainContainer>
-        {origem === 'casados' ? (
-          <h1>Curso Casados e Felizes Online</h1>
+        {origem === 'comunaKids' ? (
+          <h1>Drive-in de dia das crianças</h1>
         ) : (
           <h1>Culto presencial Comunidade da Graça SBC</h1>
         )}

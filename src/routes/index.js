@@ -7,6 +7,8 @@ import FormCasados from '../pages/CursoCasados';
 import Finalizacao from '../pages/Finalizacao';
 import ListaPresencas from '../pages/ListaPresencas';
 import DownloadFile from '../pages/DownloadFile';
+import ComunaKids from '../pages/ComunaKids';
+import ListaPresencasComunaKids from '../pages/ListaPresencasComunaKids';
 
 export default () => {
   return (
@@ -17,6 +19,8 @@ export default () => {
       <Route path="/finalizacao" component={Finalizacao} />
       <Route path="/lista/manha" component={ListaPresencas} />
       <Route path="/lista/noite" component={ListaPresencas} />
+      <Route path="/comunaKids" component={ComunaKids} />
+      <Route path="/lista/comunaKids" component={ListaPresencasComunaKids} />
     </Switch>
   );
 };

@@ -1,9 +1,8 @@
 import React, { useState, useCallback } from 'react';
 import { validate } from 'email-validator';
 import { useHistory } from 'react-router-dom';
-import api from '../../services/api';
-
 import { FiMail, FiUser, FiPhone } from 'react-icons/fi';
+import api from '../../services/api';
 
 import {
   Container,
@@ -63,7 +62,7 @@ export default () => {
   }, [celular]);
 
   function handleChangeHorarioCulto(event) {
-    const target = event.target;
+    const { target } = event;
 
     if (target.name === 'manha') {
       setHorarioCulto('manha');
@@ -124,7 +123,8 @@ export default () => {
     <Container>
       <DivLabelInput>
         <label htmlFor="emailInput">
-          Endereço de e-mail <span>*</span>{' '}
+          Endereço de e-mail
+          <span>*</span>
         </label>
         <DivInput
           isFilled={!!email}
@@ -146,7 +146,8 @@ export default () => {
 
       <DivLabelInput>
         <label htmlFor="nomeCompletoInput">
-          Nome completo <span>*</span>{' '}
+          Nome completo
+          <span>*</span>
         </label>
         <DivInput isFilled={!!nome} isFocused={nomeIsFocused}>
           <FiUser size={20} />
@@ -164,7 +165,8 @@ export default () => {
 
       <DivLabelInput>
         <label htmlFor="celularInput">
-          Celular <span>*</span>{' '}
+          Celular
+          <span>*</span>
         </label>
         <DivInput isFilled={!!celular} isFocused={celularIsFocused}>
           <FiPhone size={20} />
@@ -183,7 +185,8 @@ export default () => {
 
       <DivLabelInput>
         <label>
-          Selecione o horário para agendamento <span>*</span>{' '}
+          Selecione o horário para agendamento
+          <span>*</span>
         </label>
         <DivCheckbox>
           <input
