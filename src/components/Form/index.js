@@ -13,7 +13,7 @@ import {
 } from './styles';
 
 export default () => {
-  const proximoDia = 20;
+  const proximoDia = 27;
   const primeiroDia = proximoDia - 5;
 
   const history = useHistory();

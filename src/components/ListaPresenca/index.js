@@ -1,12 +1,11 @@
 import React, { useEffect, useState, useCallback } from 'react';
+import { FiCheck } from 'react-icons/fi';
 import api from '../../services/api';
 
 import { Container } from './style';
 
-import { FiCheck } from 'react-icons/fi';
-
 export default ({ horarioCulto }) => {
-  const proximoDia = 20;
+  const proximoDia = 27;
 
   const [usuarios, setUsuarios] = useState([]);
   const [loader, setLoader] = useState(false);
@@ -60,8 +59,14 @@ export default ({ horarioCulto }) => {
       )}
 
       <div>
-        <h3>Total: {total}</h3>
-        <h3>Total presentes: {totalPresentes}</h3>
+        <h3>
+          Total:
+          {total}
+        </h3>
+        <h3>
+          Total presentes:
+          {totalPresentes}
+        </h3>
       </div>
 
       <table>
