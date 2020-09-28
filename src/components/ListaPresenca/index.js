@@ -5,7 +5,7 @@ import api from '../../services/api';
 import { Container } from './style';
 
 export default ({ horarioCulto }) => {
-  const proximoDia = 27;
+  const proximoDia = 4;
 
   const [usuarios, setUsuarios] = useState([]);
   const [loader, setLoader] = useState(false);
@@ -85,7 +85,10 @@ export default ({ horarioCulto }) => {
                 <p>{usuario.nome}</p>
               </td>
               <td className={usuario.compareceu ? 'compareceu linha' : 'linha'}>
-                <button onClick={() => handleToggleCheckin(usuario)}>
+                <button
+                  type="submit"
+                  onClick={() => handleToggleCheckin(usuario)}
+                >
                   <FiCheck color="#fff" />
                 </button>
               </td>

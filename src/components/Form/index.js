@@ -1,4 +1,5 @@
 import React, { useState, useCallback } from 'react';
+import { isAfter } from 'date-fns';
 import { validate } from 'email-validator';
 import { useHistory } from 'react-router-dom';
 import { FiMail, FiUser, FiPhone } from 'react-icons/fi';
@@ -13,8 +14,8 @@ import {
 } from './styles';
 
 export default () => {
-  const proximoDia = 27;
-  const primeiroDia = proximoDia - 5;
+  const proximoDia = 4;
+  const dataFinal = new Date(2020, 9, proximoDia);
 
   const history = useHistory();
   const [loader, setLoader] = useState(false);
@@ -73,9 +74,9 @@ export default () => {
 
   const handleSubmitForm = async event => {
     event.preventDefault();
-    const hoje = new Date().getDate();
+    const hoje = new Date();
 
-    if (!(hoje >= primeiroDia && hoje <= proximoDia)) {
+    if (isAfter(hoje, dataFinal)) {
       alert('Não foi possível completar sua inscrição. Já expirou o prazo.');
       return;
     }
