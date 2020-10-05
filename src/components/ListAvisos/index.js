@@ -9,7 +9,7 @@ export default () => {
       <ul>
         <li>
           Atendendo às normas de segurança em nossa cidade, será necessário
-          agendar a sua presença em um dos cultos deste domingo 04/10, limitando
+          agendar a sua presença em um dos cultos deste domingo 11/10, limitando
           à quantidade permitida por lei.
         </li>
         <li>
@@ -27,7 +27,7 @@ export default () => {
           recomendamos a participação presencial para crianças acima de 11 anos.
         </li>
         <li>
-          Limite de 185 inscritos por culto, incluindo staff, diaconato e
+          Limite de 195 inscritos por culto, incluindo staff, diaconato e
           ministério de louvor.
         </li>
         <li>

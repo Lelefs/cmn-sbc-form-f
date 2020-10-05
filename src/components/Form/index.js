@@ -14,7 +14,7 @@ import {
 } from './styles';
 
 export default () => {
-  const proximoDia = 4;
+  const proximoDia = 11;
   const dataFinal = new Date(2020, 9, proximoDia);
 
   const history = useHistory();
@@ -97,7 +97,7 @@ export default () => {
 
     const { total } = response.data;
 
-    if (total >= 185) {
+    if (total >= 195) {
       alert('Não foi possível completar sua inscrição. Vagas esgotadas.');
       setLoader(false);
       return;

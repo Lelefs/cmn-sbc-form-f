@@ -5,7 +5,7 @@ import api from '../../services/api';
 import { Container } from './style';
 
 export default ({ horarioCulto }) => {
-  const proximoDia = 4;
+  const proximoDia = 11;
 
   const [usuarios, setUsuarios] = useState([]);
   const [loader, setLoader] = useState(false);
@@ -60,11 +60,11 @@ export default ({ horarioCulto }) => {
 
       <div>
         <h3>
-          Total:
+          Total:&nbsp;
           {total}
         </h3>
         <h3>
-          Total presentes:
+          Total presentes:&nbsp;
           {totalPresentes}
         </h3>
       </div>

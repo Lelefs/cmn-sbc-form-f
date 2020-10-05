@@ -53,11 +53,11 @@ export default () => {
 
       <div>
         <h3>
-          Total:
+          Total:&nbsp;
           {total}
         </h3>
         <h3>
-          Total presentes:
+          Total presentes:&nbsp;
           {totalPresentes}
         </h3>
       </div>
