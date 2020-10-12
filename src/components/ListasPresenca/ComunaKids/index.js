@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { FiCheck } from 'react-icons/fi';
-import api from '../../services/api';
+import api from '../../../services/api';
 
 import { Container } from './style';
 

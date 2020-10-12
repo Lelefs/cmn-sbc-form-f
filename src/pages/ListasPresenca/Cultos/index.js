@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ListaPresenca from '../../components/ListaPresenca';
+import ListaPresenca from '../../../components/ListasPresenca/Cultos';
 
 import { Container } from './styles';
 

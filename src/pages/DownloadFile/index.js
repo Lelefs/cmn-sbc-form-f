@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import api from '../../services/api';
 import * as FileSaver from 'file-saver';
 import * as XLSX from 'xlsx';
+import api from '../../services/api';
 
 import { Container, Button } from './styles';
 
@@ -41,7 +41,7 @@ export default () => {
       const data = new Blob([excelBuffer], { type: fileType });
       FileSaver.saveAs(
         data,
-        'Inscrições curso Casados e Felizes 2020' + fileExtension,
+        `Inscrições curso Casados e Felizes 2020${fileExtension}`,
       );
     }
 

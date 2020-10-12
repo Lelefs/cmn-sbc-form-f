@@ -3,7 +3,7 @@ import { isAfter } from 'date-fns';
 import { validate } from 'email-validator';
 import { useHistory } from 'react-router-dom';
 import { FiMail, FiUser, FiPhone } from 'react-icons/fi';
-import api from '../../services/api';
+import api from '../../../services/api';
 
 import {
   Container,
@@ -14,7 +14,7 @@ import {
 } from './styles';
 
 export default () => {
-  const proximoDia = 11;
+  const proximoDia = 18;
   const dataFinal = new Date(2020, 9, proximoDia);
 
   const history = useHistory();

@@ -1,11 +1,11 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { FiCheck } from 'react-icons/fi';
-import api from '../../services/api';
+import api from '../../../services/api';
 
 import { Container } from './style';
 
 export default ({ horarioCulto }) => {
-  const proximoDia = 11;
+  const proximoDia = 18;
 
   const [usuarios, setUsuarios] = useState([]);
   const [loader, setLoader] = useState(false);

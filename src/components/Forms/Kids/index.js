@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { FiUser } from 'react-icons/fi';
 import { BiFace } from 'react-icons/bi';
 import { TiSortNumerically } from 'react-icons/ti';
-import api from '../../services/api';
+import api from '../../../services/api';
 
 import { Container, DivLabelInput, DivInput, Button } from './styles';
 

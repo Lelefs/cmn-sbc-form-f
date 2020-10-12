@@ -1,13 +1,13 @@
 import React from 'react';
 
-import ListaPresencaComunaKids from '../../components/ListaPresencaComunaKids';
+import ListaPresenca from '../../../components/ListasPresenca/BemVindo';
 
 import { Container } from './styles';
 
 export default () => {
   return (
     <Container>
-      <ListaPresencaComunaKids />
+      <ListaPresenca />
     </Container>
   );
 };
