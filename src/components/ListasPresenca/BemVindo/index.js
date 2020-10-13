@@ -63,7 +63,7 @@ export default () => {
                     : 'Novo Mmembro'}
                 </p>
               </td>
-              <td className="linha">
+              <td className="linha numero">
                 <p>{usuario.participaCelula ? 'Sim' : 'Não'}</p>
               </td>
               <td className="linha">
