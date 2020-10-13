@@ -11,7 +11,7 @@ import { Container, DivLabelInput, DivInput, Button } from './styles';
 export default () => {
   const history = useHistory();
   const [loader, setLoader] = useState(false);
-  const dataFinal = new Date(2020, 9, 12);
+  const dataFinal = new Date(2020, 9, 14);
 
   const [nome, setNome] = useState('');
   const [nomeIsFocused, setNomeIsFocused] = useState(false);

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import img from '../../assets/banner-drive-in.jpg';
+import img from '../../assets/banner-bem-vindo.jpg';
 
 export const Container = styled.div`
   padding: 20px;
@@ -19,9 +19,9 @@ export const ImageDiv = styled.div`
   width: 650px;
   background-size: cover;
   margin-bottom: 15px;
-  background-position-y: -70px;
+  background-position-y: -165px;
 
   @media only screen and (max-width: 500px) {
-    background-position-y: -40px;
+    background-position-y: -110px;
   }
 `;
