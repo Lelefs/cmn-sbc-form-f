@@ -1,19 +1,36 @@
 import React from 'react';
-import { Container, ImageDiv, MainContainer, ImageDivCasados } from './styles';
+import {
+  Container,
+  ImageDiv,
+  MainContainer,
+  ImageDivKids,
+  ImageDivBemVindo,
+} from './styles';
+
+const origens = {
+  comunaKids: {
+    titulo: 'Drive-in de dia das crianças',
+    div: <ImageDivKids />,
+  },
+  bemVindo: {
+    titulo: 'Encontro Vida Vitoriosa',
+    div: <ImageDivBemVindo />,
+  },
+  cultoPresencial: {
+    titulo: 'Culto presencial Comunidade da Graça SBC',
+    div: <ImageDiv />,
+  },
+};
 
 export default props => {
   const { origem } = props.location.state;
 
   return (
     <Container>
-      {origem === 'comunaKids' ? <ImageDivCasados /> : <ImageDiv />}
+      {origens[origem].div}
 
       <MainContainer>
-        {origem === 'comunaKids' ? (
-          <h1>Drive-in de dia das crianças</h1>
-        ) : (
-          <h1>Culto presencial Comunidade da Graça SBC</h1>
-        )}
+        <h1>{origens[origem].titulo}</h1>
 
         <p>
           Agradecemos a sua inscrição. Em caso de dúvidas, entre em contato com

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import img from '../../assets/banner.jpg';
-import imgCasados from '../../assets/banner-casados.jpg';
+import imgKids from '../../assets/banner-drive-in.jpg';
+import imgBemVindo from '../../assets/banner-bem-vindo.jpg';
 
 export const Container = styled.div`
   padding: 20px;
@@ -22,8 +23,8 @@ export const ImageDiv = styled.div`
   margin-bottom: 15px;
 `;
 
-export const ImageDivCasados = styled.div`
-  background-image: url(${imgCasados});
+export const ImageDivKids = styled.div`
+  background-image: url(${imgKids});
   border-radius: 8px;
   max-height: 22.390243902439025vw;
   max-width: 90vw;
@@ -31,6 +32,27 @@ export const ImageDivCasados = styled.div`
   width: 650px;
   background-size: cover;
   margin-bottom: 15px;
+  background-position-y: -70px;
+
+  @media only screen and (max-width: 500px) {
+    background-position-y: -40px;
+  }
+`;
+
+export const ImageDivBemVindo = styled.div`
+  background-image: url(${imgBemVindo});
+  border-radius: 8px;
+  max-height: 22.390243902439025vw;
+  max-width: 90vw;
+  height: 159.21951219512195px;
+  width: 650px;
+  background-size: cover;
+  margin-bottom: 15px;
+  background-position-y: -165px;
+
+  @media only screen and (max-width: 500px) {
+    background-position-y: -110px;
+  }
 `;
 
 export const MainContainer = styled.div`
