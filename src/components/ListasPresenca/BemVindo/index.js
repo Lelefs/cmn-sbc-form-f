@@ -60,7 +60,7 @@ export default () => {
                 <p>
                   {usuario.batismoNovoMembro === 'batismo'
                     ? 'Batismo'
-                    : 'Novo Mmembro'}
+                    : 'Novo Membro'}
                 </p>
               </td>
               <td className="linha numero">
