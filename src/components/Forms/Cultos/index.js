@@ -14,8 +14,8 @@ import {
 } from './styles';
 
 export default () => {
-  const proximoDia = 18;
-  const dataFinal = new Date(2020, 9, proximoDia);
+  const proximoDia = 25;
+  const dataFinal = new Date(2020, 9, proximoDia, 20, 0, 0);
 
   const history = useHistory();
   const [loader, setLoader] = useState(false);

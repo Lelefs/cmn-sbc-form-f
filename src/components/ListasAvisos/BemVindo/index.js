@@ -12,8 +12,8 @@ export default () => {
           todos os participantes, estamos com algumas mudanças:
         </li>
         <li>
-          O encontro vai acontecer em nossa Comunidade nos dias 18,19 e 20 de
-          Novembro.
+          O encontro vai acontecer em nossa Comunidade nos dias 17, 18,19 e 20
+          de Novembro.
         </li>
         <li>Em todos os dias o encontro terá inicio às 20 horas.</li>
         <li>

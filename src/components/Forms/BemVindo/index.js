@@ -17,7 +17,7 @@ import {
 export default () => {
   const history = useHistory();
   const [loader, setLoader] = useState(false);
-  const dataFinal = new Date(2020, 10, 16);
+  const dataFinal = new Date(2020, 10, 16, 23, 59, 59);
 
   const [nome, setNome] = useState('');
   const [nomeIsFocused, setNomeIsFocused] = useState(false);
