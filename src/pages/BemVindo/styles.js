@@ -19,9 +19,9 @@ export const ImageDiv = styled.div`
   width: 650px;
   background-size: cover;
   margin-bottom: 15px;
-  background-position-y: -165px;
+  background-position-y: -70px;
 
   @media only screen and (max-width: 500px) {
-    background-position-y: -110px;
+    background-position-y: -37px;
   }
 `;
