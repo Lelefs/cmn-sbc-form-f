@@ -9,7 +9,7 @@ export default () => {
       <ul>
         <li>
           Atendendo às normas de segurança em nossa cidade, será necessário
-          agendar a sua presença em um dos cultos deste domingo 25/10, limitando
+          agendar a sua presença em um dos cultos deste domingo 01/11, limitando
           à quantidade permitida por lei.
         </li>
         <li>
