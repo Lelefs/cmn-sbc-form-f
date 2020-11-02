@@ -53,7 +53,7 @@ export const Container = styled.div`
       p {
         white-space: nowrap;
         width: 100%;
-        max-width: 300px;
+        max-width: 200px;
         overflow: hidden;
         text-overflow: ellipsis;
       }
@@ -85,6 +85,12 @@ export const Container = styled.div`
       button {
         background-color: #a7a7a7;
       }
+    }
+  }
+
+  @media only screen and (max-width: 1020px) {
+    .deskOnly {
+      display: none;
     }
   }
 

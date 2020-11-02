@@ -109,6 +109,11 @@ export default () => {
       return;
     }
 
+    if (nomeLider.length > 40) {
+      alert('Por favor insira apenas o primeiro nome do(s) líder(es)');
+      return;
+    }
+
     setLoader(true);
 
     api

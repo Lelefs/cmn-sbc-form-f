@@ -5,7 +5,7 @@ import api from '../../../services/api';
 import { Container } from './style';
 
 export default ({ horarioCulto }) => {
-  const proximoDia = 1;
+  const proximoDia = 8;
 
   const [usuarios, setUsuarios] = useState([]);
   const [loader, setLoader] = useState(false);

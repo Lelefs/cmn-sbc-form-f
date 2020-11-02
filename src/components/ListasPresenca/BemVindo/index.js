@@ -37,10 +37,10 @@ export default () => {
             <th>Nº</th>
             <th>Nome</th>
             <th>Telefone</th>
-            <th>E-mail</th>
+            <th className="deskOnly">E-mail</th>
             <th>Situação</th>
-            <th>Vai em célula</th>
-            <th>Líder célula</th>
+            <th className="deskOnly">Vai em célula</th>
+            <th className="deskOnly">Líder célula</th>
           </tr>
         </thead>
         <tbody>
@@ -53,7 +53,7 @@ export default () => {
               <td className="linha numero">
                 <p>{usuario.telefone}</p>
               </td>
-              <td className="linha">
+              <td className="linha deskOnly">
                 <p>{usuario.email}</p>
               </td>
               <td className="linha">
@@ -63,10 +63,10 @@ export default () => {
                     : 'Novo Membro'}
                 </p>
               </td>
-              <td className="linha numero">
+              <td className="linha numero deskOnly">
                 <p>{usuario.participaCelula ? 'Sim' : 'Não'}</p>
               </td>
-              <td className="linha">
+              <td className="linha deskOnly">
                 <p>{usuario.participaCelula ? usuario.nomeLider : '-'}</p>
               </td>
             </tr>
