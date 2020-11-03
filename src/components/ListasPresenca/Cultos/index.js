@@ -1,54 +1,62 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { FiCheck } from 'react-icons/fi';
+
 import api from '../../../services/api';
+import {
+  connect,
+  disconnect,
+  subscribeToNewCheckin,
+} from '../../../services/socket';
 
 import { Container } from './style';
 
 export default ({ horarioCulto }) => {
   const proximoDia = 8;
-
+  // eslint-disable-next-line
+  const [precisaAtualizar, setPrecisaAtualizar] = useState(false);
   const [usuarios, setUsuarios] = useState([]);
   const [loader, setLoader] = useState(false);
   const [total, setTotal] = useState(0);
   const [totalPresentes, setTotalPresentes] = useState(0);
 
   useEffect(() => {
-    async function carregarUsuarios() {
-      const response = await api.get(`/form/${proximoDia}/${horarioCulto}`);
-      response.data.sort(function (a, b) {
-        return a.nome < b.nome ? -1 : a.nome > b.nome ? 1 : 0;
-      });
-      const responseTotal = await api.get(
-        `/form/contagem/${proximoDia}/${horarioCulto}`,
-      );
+    subscribeToNewCheckin(usuario => {
+      setPrecisaAtualizar(true);
+      carregarUsuarios();
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-      setUsuarios(response.data);
-      setTotal(responseTotal.data.total);
-      setTotalPresentes(responseTotal.data.totalPresentes);
-    }
+  function setupWebsocket() {
+    disconnect();
+    connect();
+  }
 
+  async function carregarUsuarios() {
+    const response = await api.get(`/form/${proximoDia}/${horarioCulto}`);
+    response.data.sort(function (a, b) {
+      return a.nome < b.nome ? -1 : a.nome > b.nome ? 1 : 0;
+    });
+    const responseTotal = await api.get(
+      `/form/contagem/${proximoDia}/${horarioCulto}`,
+    );
+
+    setUsuarios(response.data);
+    setTotal(responseTotal.data.total);
+    setTotalPresentes(responseTotal.data.totalPresentes);
+    setupWebsocket();
+    setLoader(false);
+  }
+
+  useEffect(() => {
     carregarUsuarios();
-  }, [horarioCulto]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-  const handleToggleCheckin = useCallback(
-    async usuario => {
-      setLoader(true);
-      await api.put('/form', { _id: usuario._id });
-      const response = await api.get(`/form/${proximoDia}/${horarioCulto}`);
-      response.data.sort(function (a, b) {
-        return a.nome < b.nome ? -1 : a.nome > b.nome ? 1 : 0;
-      });
-      const responseTotal = await api.get(
-        `/form/contagem/${proximoDia}/${horarioCulto}`,
-      );
-
-      setUsuarios(response.data);
-      setTotal(responseTotal.data.total);
-      setTotalPresentes(responseTotal.data.totalPresentes);
-      setLoader(false);
-    },
-    [horarioCulto],
-  );
+  const handleToggleCheckin = useCallback(async usuario => {
+    setLoader(true);
+    await api.put('/form', { _id: usuario._id });
+  }, []);
 
   return (
     <Container>
