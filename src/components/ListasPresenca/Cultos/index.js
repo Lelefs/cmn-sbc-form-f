@@ -2,37 +2,19 @@ import React, { useEffect, useState, useCallback } from 'react';
 import { FiCheck } from 'react-icons/fi';
 
 import api from '../../../services/api';
-import {
-  connect,
-  disconnect,
-  subscribeToNewCheckin,
-} from '../../../services/socket';
 
 import { Container } from './style';
 
 export default ({ horarioCulto }) => {
   const proximoDia = 8;
-  // eslint-disable-next-line
-  const [precisaAtualizar, setPrecisaAtualizar] = useState(false);
+
   const [usuarios, setUsuarios] = useState([]);
   const [loader, setLoader] = useState(false);
   const [total, setTotal] = useState(0);
   const [totalPresentes, setTotalPresentes] = useState(0);
 
-  useEffect(() => {
-    subscribeToNewCheckin(usuario => {
-      setPrecisaAtualizar(true);
-      carregarUsuarios();
-    });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  function setupWebsocket() {
-    disconnect();
-    connect();
-  }
-
   async function carregarUsuarios() {
+    setLoader(true);
     const response = await api.get(`/form/${proximoDia}/${horarioCulto}`);
     response.data.sort(function (a, b) {
       return a.nome < b.nome ? -1 : a.nome > b.nome ? 1 : 0;
@@ -44,7 +26,6 @@ export default ({ horarioCulto }) => {
     setUsuarios(response.data);
     setTotal(responseTotal.data.total);
     setTotalPresentes(responseTotal.data.totalPresentes);
-    setupWebsocket();
     setLoader(false);
   }
 
@@ -53,9 +34,11 @@ export default ({ horarioCulto }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const handleToggleCheckin = useCallback(async usuario => {
+  const handleToggleCheckin = useCallback(async (usuario, simNao) => {
     setLoader(true);
-    await api.put('/form', { _id: usuario._id });
+    await api.put('/form', { _id: usuario._id, compareceuSimNao: simNao });
+    carregarUsuarios();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -93,12 +76,21 @@ export default ({ horarioCulto }) => {
                 <p>{usuario.nome}</p>
               </td>
               <td className={usuario.compareceu ? 'compareceu linha' : 'linha'}>
-                <button
-                  type="submit"
-                  onClick={() => handleToggleCheckin(usuario)}
-                >
-                  <FiCheck color="#fff" />
-                </button>
+                {usuario.compareceu ? (
+                  <button
+                    type="submit"
+                    onClick={() => handleToggleCheckin(usuario, false)}
+                  >
+                    <FiCheck color="#fff" />
+                  </button>
+                ) : (
+                  <button
+                    type="submit"
+                    onClick={() => handleToggleCheckin(usuario, true)}
+                  >
+                    <FiCheck color="#fff" />
+                  </button>
+                )}
               </td>
             </tr>
           ))}
