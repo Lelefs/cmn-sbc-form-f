@@ -14,7 +14,7 @@ import {
 } from './styles';
 
 export default () => {
-  const proximoDia = 8;
+  const proximoDia = 15;
   const dataFinal = new Date(2020, 10, proximoDia, 20, 0, 0);
 
   const history = useHistory();
@@ -223,7 +223,8 @@ export default () => {
           nome === '' ||
           celular === '' ||
           celular.length < 8 ||
-          horarioCulto === ''
+          horarioCulto === '' ||
+          loader
         }
       >
         {loader ? 'Aguarde...' : 'Enviar'}
