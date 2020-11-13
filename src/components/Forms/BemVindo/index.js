@@ -279,7 +279,8 @@ export default () => {
           telefone === '' ||
           email === '' ||
           batismoNovoMembro === '' ||
-          (participaCelula && nomeLider === '')
+          (participaCelula && nomeLider === '') ||
+          loader
         }
       >
         {loader ? 'Aguarde...' : 'Enviar'}
