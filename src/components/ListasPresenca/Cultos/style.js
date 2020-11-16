@@ -87,10 +87,6 @@ export const Container = styled.div`
 
   @media only screen and (max-width: 500px) {
     table {
-      border-radius: 0;
-      border: 0;
-      max-width: 340px;
-
       .linha p {
         width: 200px;
         font-size: 14px;
