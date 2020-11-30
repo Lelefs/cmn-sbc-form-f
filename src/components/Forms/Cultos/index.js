@@ -97,7 +97,7 @@ export default () => {
 
     const { total } = response.data;
 
-    if (total >= 300) {
+    if (total >= 200) {
       alert('Não foi possível completar sua inscrição. Vagas esgotadas.');
       setLoader(false);
       return;
