@@ -6,7 +6,7 @@ import api from '../../../services/api';
 import { Container } from './style';
 
 export default ({ horarioCulto }) => {
-  const proximoDia = 13;
+  const proximoDia = process.env.REACT_APP_DIA;
 
   const [usuarios, setUsuarios] = useState([]);
   const [loader, setLoader] = useState(false);

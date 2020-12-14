@@ -14,7 +14,7 @@ import {
 } from './styles';
 
 export default () => {
-  const proximoDia = 13;
+  const proximoDia = process.env.REACT_APP_DIA;
   const dataFinal = new Date(2020, 11, proximoDia, 20, 0, 0);
 
   const history = useHistory();

@@ -9,8 +9,9 @@ export default () => {
       <ul>
         <li>
           Atendendo às normas de segurança em nossa cidade, será necessário
-          agendar a sua presença em um dos cultos deste domingo 13/12, limitando
-          à quantidade permitida por lei.
+          agendar a sua presença em um dos cultos deste domingo&nbsp;
+          {process.env.REACT_APP_DIA}/12, limitando à quantidade permitida por
+          lei.
         </li>
         <li>
           Em caso de dúvidas, entre em contato pelo nosso WhatsApp (11)
