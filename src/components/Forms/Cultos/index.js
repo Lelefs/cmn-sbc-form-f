@@ -30,7 +30,7 @@ export default () => {
   const [celular, setCelular] = useState('');
   const [celularIsFocused, setCelularIsFocused] = useState(false);
 
-  const [horarioCulto, setHorarioCulto] = useState('');
+  const [horarioCulto, setHorarioCulto] = useState('manha');
 
   const handledEmailFocus = useCallback(() => {
     setEmailIsFocused(true);
@@ -78,6 +78,11 @@ export default () => {
 
     if (isAfter(hoje, dataFinal)) {
       alert('Não foi possível completar sua inscrição. Já expirou o prazo.');
+      return;
+    }
+
+    if (horarioCulto !== 'manha') {
+      alert('Para esse domingo só teremos culto pela manhã.');
       return;
     }
 
@@ -202,7 +207,7 @@ export default () => {
           </label>
         </DivCheckbox>
 
-        <DivCheckbox>
+        {/* <DivCheckbox>
           <input
             type="radio"
             id="cultoNoiteInput"
@@ -213,7 +218,7 @@ export default () => {
           <label htmlFor="cultoNoiteInput">
             Noite, check-in às 17h30, início às 18h
           </label>
-        </DivCheckbox>
+        </DivCheckbox> */}
       </DivLabelInput>
 
       <Button
