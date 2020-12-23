@@ -8,8 +8,8 @@ export default () => {
       <h1>Culto presencial Comunidade da Graça SBC</h1>
       <ul>
         <li>
-          Os nossos cultos presenciais estão temporariamente suspensos por
-          decreto do estado de São Paulo a respeito do covid.
+          Os nossos cultos presenciais aos domingos estão temporariamente
+          suspensos por decreto do estado de São Paulo a respeito do covid.
         </li>
         <li>
           Enquanto isso todos podem nos acompanhar online em nosso canal do
