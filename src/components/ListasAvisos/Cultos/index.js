@@ -8,6 +8,15 @@ export default () => {
       <h1>Culto presencial Comunidade da Graça SBC</h1>
       <ul>
         <li>
+          Os nossos cultos presenciais estão temporariamente suspensos por
+          decreto do estado de São Paulo a respeito do covid.
+        </li>
+        <li>
+          Enquanto isso todos podem nos acompanhar online em nosso canal do
+          YouTube.
+        </li>
+        <li />
+        {/* <li>
           Atendendo às normas de segurança em nossa cidade, será necessário
           agendar a sua presença em um dos cultos deste domingo&nbsp;
           {process.env.REACT_APP_DIA}/12, limitando à quantidade permitida por
@@ -43,7 +52,7 @@ export default () => {
           Crianças e idosos, de acordo com o decreto, não podem participar. (De
           acordo com o decreto municipal 211.18)
         </li>
-        <li>*Obrigatório</li>
+        <li>*Obrigatório</li> */}
       </ul>
     </Container>
   );
