@@ -8,6 +8,6 @@ export default () => (
   <Container>
     <ImageDiv />
     <ListaAvisos />
-    {/* <Form /> */}
+    <Form />
   </Container>
 );

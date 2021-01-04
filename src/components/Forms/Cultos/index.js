@@ -15,7 +15,7 @@ import {
 
 export default () => {
   const proximoDia = process.env.REACT_APP_DIA;
-  const dataFinal = new Date(2020, 11, proximoDia, 20, 0, 0);
+  const dataFinal = new Date(2021, 0, proximoDia, 20, 0, 0);
 
   const history = useHistory();
   const [loader, setLoader] = useState(false);
@@ -30,7 +30,7 @@ export default () => {
   const [celular, setCelular] = useState('');
   const [celularIsFocused, setCelularIsFocused] = useState(false);
 
-  const [horarioCulto, setHorarioCulto] = useState('manha');
+  const [horarioCulto, setHorarioCulto] = useState('');
 
   const handledEmailFocus = useCallback(() => {
     setEmailIsFocused(true);
@@ -96,18 +96,6 @@ export default () => {
 
     setLoader(true);
 
-    const response = await api.get(
-      `/form/contagem/${proximoDia}/${horarioCulto}`,
-    );
-
-    const { total } = response.data;
-
-    if (total >= 200) {
-      alert('Não foi possível completar sua inscrição. Vagas esgotadas.');
-      setLoader(false);
-      return;
-    }
-
     api
       .post('/form', {
         nome,
@@ -143,7 +131,7 @@ export default () => {
             id="emailInput"
             placeholder="Seu e-mail"
             value={email}
-            onChange={e => setEmail(e.target.value)}
+            onChange={e => setEmail(e.target.value.trim())}
             onFocus={handledEmailFocus}
             onBlur={handledEmailBlur}
           />
@@ -162,7 +150,7 @@ export default () => {
             id="nomeCompletoInput"
             placeholder="Seu nome completo"
             value={nome}
-            onChange={e => setNome(e.target.value)}
+            onChange={e => setNome(e.target.value.trim())}
             onFocus={handledNomeFocus}
             onBlur={handledNomeBlur}
           />
@@ -207,7 +195,7 @@ export default () => {
           </label>
         </DivCheckbox>
 
-        {/* <DivCheckbox>
+        <DivCheckbox>
           <input
             type="radio"
             id="cultoNoiteInput"
@@ -218,7 +206,7 @@ export default () => {
           <label htmlFor="cultoNoiteInput">
             Noite, check-in às 17h30, início às 18h
           </label>
-        </DivCheckbox> */}
+        </DivCheckbox>
       </DivLabelInput>
 
       <Button

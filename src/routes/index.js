@@ -10,9 +10,9 @@ export default () => {
   return (
     <Switch>
       <Route path="/" exact component={Main} />
-      {/* <Route path="/finalizacao" component={Finalizacao} />
+      <Route path="/finalizacao" component={Finalizacao} />
       <Route path="/lista/manha" component={ListaPresencas} />
-      <Route path="/lista/noite" component={ListaPresencas} /> */}
+      <Route path="/lista/noite" component={ListaPresencas} />
       <Route path="*">
         <Redirect to="/" />
       </Route>
