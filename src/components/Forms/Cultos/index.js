@@ -81,11 +81,6 @@ export default () => {
       return;
     }
 
-    if (horarioCulto !== 'manha') {
-      alert('Para esse domingo só teremos culto pela manhã.');
-      return;
-    }
-
     const emailValido = validate(email);
 
     if (!emailValido) {
