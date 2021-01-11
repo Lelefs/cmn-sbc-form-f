@@ -126,7 +126,7 @@ export default () => {
             id="emailInput"
             placeholder="Seu e-mail"
             value={email}
-            onChange={e => setEmail(e.target.value.trim())}
+            onChange={e => setEmail(e.target.value)}
             onFocus={handledEmailFocus}
             onBlur={handledEmailBlur}
           />
@@ -145,7 +145,7 @@ export default () => {
             id="nomeCompletoInput"
             placeholder="Seu nome completo"
             value={nome}
-            onChange={e => setNome(e.target.value.trim())}
+            onChange={e => setNome(e.target.value)}
             onFocus={handledNomeFocus}
             onBlur={handledNomeBlur}
           />
