@@ -3,6 +3,7 @@ import {
   Container,
   ImageDiv,
   MainContainer,
+  ImageDivStaff,
   ImageDivKids,
   ImageDivBemVindo,
 } from './styles';
@@ -15,6 +16,10 @@ const origens = {
   bemVindo: {
     titulo: 'Encontro Vida Vitoriosa',
     div: <ImageDivBemVindo />,
+  },
+  staff: {
+    titulo: 'Treinamento Staff',
+    div: <ImageDivStaff />,
   },
   cultoPresencial: {
     titulo: 'Culto presencial Comunidade da Graça SBC',

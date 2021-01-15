@@ -13,24 +13,18 @@ export default () => {
 
   useEffect(() => {
     async function carregarInscricoes() {
-      const response = await api.get('/cursoCasados/all');
+      const response = await api.get('/staff/all');
       response.data.sort(function (a, b) {
         return a.nome1 < b.nome1 ? -1 : a.nome1 > b.nome1 ? 1 : 0;
       });
 
       const novoArray = await response.data.map(inscricao => ({
-        'Nome dele': inscricao.nome1,
-        'E-mail dele': inscricao.email1,
-        'Telefone dele': inscricao.telefone1,
-        'Ele participa célula': inscricao.participaCelula1,
-        'Célula dele': inscricao.celula1,
-        Baizado: inscricao.batizado1,
-        'Nome dela': inscricao.nome2,
-        'E-mail dela': inscricao.email2,
-        'Telefone dela': inscricao.telefone2,
-        'Ela participa célula': inscricao.participaCelula2,
-        'Célula dela': inscricao.celula2,
-        Baizada: inscricao.batizado2,
+        Nome: inscricao.nome,
+        Célula: inscricao.celula,
+        Idade: inscricao.idade,
+        Batizado: inscricao.batizado ? 'Sim' : 'Não',
+        Telefone: inscricao.telefone,
+        Aptidões: inscricao.aptidoes.join('; '),
       }));
 
       setInscricoes(state => response.data);
@@ -41,7 +35,7 @@ export default () => {
       const data = new Blob([excelBuffer], { type: fileType });
       FileSaver.saveAs(
         data,
-        `Inscrições curso Casados e Felizes 2020${fileExtension}`,
+        `Inscrições treinamento Staff 2021${fileExtension}`,
       );
     }
 
@@ -58,11 +52,11 @@ export default () => {
 
   return (
     <Container>
-      <h1>Curso Casados e Felizes 2020</h1>
+      <h1>Treinamento Staff 2021</h1>
       <p>O download automático não iniciou? Clique no botão abaixo.</p>
       <Button
         onClick={() =>
-          downloadData(inscricoes, 'Inscrições curso Casados e Felizes 2020')
+          downloadData(inscricoes, 'Inscrições treinamento Staff 2021')
         }
       >
         Download
