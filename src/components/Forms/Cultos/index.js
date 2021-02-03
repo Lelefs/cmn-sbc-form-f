@@ -15,7 +15,7 @@ import {
 
 export default () => {
   const proximoDia = process.env.REACT_APP_DIA;
-  const dataFinal = new Date(2021, 0, proximoDia, 20, 0, 0);
+  const dataFinal = new Date(2021, 1, proximoDia, 20, 0, 0);
 
   const history = useHistory();
   const [loader, setLoader] = useState(false);

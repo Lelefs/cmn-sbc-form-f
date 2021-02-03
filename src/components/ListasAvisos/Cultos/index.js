@@ -10,7 +10,7 @@ export default () => {
         <li>
           Atendendo às normas de segurança em nossa cidade, será necessário
           agendar a sua presença em um dos cultos deste domingo&nbsp;
-          {process.env.REACT_APP_DIA}/01, limitando à quantidade permitida por
+          {process.env.REACT_APP_DIA}/02, limitando à quantidade permitida por
           lei.
         </li>
         <li>
