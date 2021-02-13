@@ -31,10 +31,6 @@ export default () => {
           Venha de máscara e siga as orientações dos diáconos e cooperadores
           para distanciamento e higienização.
         </li>
-        <li>
-          Crianças e idosos, de acordo com o decreto, não podem participar. (De
-          acordo com o decreto municipal 211.18)
-        </li>
         <li>*Obrigatório</li>
       </ul>
     </Container>
