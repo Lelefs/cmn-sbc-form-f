@@ -5,7 +5,7 @@ import Route from './Route';
 import Diaconos from '../pages/Diaconos';
 import DownloadFile from '../pages/DownloadFile';
 import Finalizacao from '../pages/Finalizacao';
-import ListaPresencas from '../pages/ListasPresenca/Cultos';
+// import ListaPresencas from '../pages/ListasPresenca/Cultos';
 import Main from '../pages/Main';
 import Staff from '../pages/Staff';
 

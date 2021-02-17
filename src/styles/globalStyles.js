@@ -18,9 +18,17 @@ export default createGlobalStyle`
     background-color: #ede7f6;
   }
 
+  html {
+    font-size: 16px;
+
+    @media only screen and (max-width: 600px) {
+      font-size: 14px;
+    }
+  }
+
   body, input, button, textarea {
     font-family: 'Roboto', sans-serif;
-    font-size: 16px;
+    font-size: 1rem;
   }
 
   button {
