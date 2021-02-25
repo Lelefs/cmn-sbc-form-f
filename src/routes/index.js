@@ -8,6 +8,7 @@ import Finalizacao from '../pages/Finalizacao';
 // import ListaPresencas from '../pages/ListasPresenca/Cultos';
 import Main from '../pages/Main';
 import Staff from '../pages/Staff';
+import Mulheres from '../pages/Mulheres';
 
 export default () => {
   return (
@@ -17,6 +18,8 @@ export default () => {
       <Route path="/downloadStaff/Leo@1212" component={DownloadFile} />
       <Route path="/finalizacao" component={Finalizacao} />
       <Route path="/staff" component={Staff} />
+      <Route path="/mulheres" component={Mulheres} />
+
       {/* <Route path="/lista/manha" component={ListaPresencas} />
       <Route path="/lista/noite" component={ListaPresencas} /> */}
       <Route path="*">

@@ -3,6 +3,7 @@ import img from '../../assets/banner.jpg';
 import imgStaff from '../../assets/banner-staff.jpeg';
 import imgKids from '../../assets/banner-drive-in.jpg';
 import imgBemVindo from '../../assets/banner-bem-vindo.jpg';
+import imgMulheres from '../../assets/mulheres.jpg';
 
 export const Container = styled.div`
   padding: 20px;
@@ -64,6 +65,22 @@ export const ImageDivBemVindo = styled.div`
 
   @media only screen and (max-width: 500px) {
     background-position-y: -110px;
+  }
+`;
+
+export const ImageDivMulheres = styled.div`
+  background-image: url(${imgMulheres});
+  border-radius: 8px;
+  max-height: 22.390243902439025vw;
+  max-width: 90vw;
+  height: 159.21951219512195px;
+  width: 650px;
+  background-size: cover;
+  margin-bottom: 15px;
+  background-position-y: -70px;
+
+  @media only screen and (max-width: 500px) {
+    background-position-y: -40px;
   }
 `;
 

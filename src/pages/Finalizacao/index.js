@@ -6,6 +6,7 @@ import {
   ImageDivStaff,
   ImageDivKids,
   ImageDivBemVindo,
+  ImageDivMulheres
 } from './styles';
 
 const origens = {
@@ -25,6 +26,10 @@ const origens = {
     titulo: 'Culto presencial Comunidade da Graça SBC',
     div: <ImageDiv />,
   },
+  mulheres: {
+    titulo: 'Encontro de Mulheres Intercessoras',
+    div: <ImageDivMulheres />,
+  }
 };
 
 export default props => {
