@@ -72,7 +72,7 @@ export default () => {
       })
       .then(res => {
         setLoader(false);
-        history.push('/finalizacao-mulheres', { origem: 'mulheres' });
+        history.push('/finalizacao', { origem: 'mulheres' });
       })
       .catch(e => {
         setLoader(false);
