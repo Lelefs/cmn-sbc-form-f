@@ -59,24 +59,24 @@ export default () => {
     setCelularIsFocused(false);
   }, [celular]);
 
-
   const handleSubmitForm = event => {
     event.preventDefault();
 
     setLoader(true);
     api
       .post('/mulheres', {
-        nome: nome,
+        nome,
         celula: email,
-        telefone: celular
+        telefone: celular,
       })
       .then(res => {
         setLoader(false);
         history.push('/finalizacao', { origem: 'mulheres' });
       })
       .catch(e => {
+        alert(e.response.data);
         setLoader(false);
-      })
+      });
   };
 
   return (
@@ -140,14 +140,10 @@ export default () => {
         </DivInput>
       </DivLabelInput>
 
-
       <Button
         onClick={handleSubmitForm}
         disabled={
-          email === '' ||
-          nome === '' ||
-          celular === '' ||
-          celular.length < 8 
+          email === '' || nome === '' || celular === '' || celular.length < 8
         }
       >
         {loader ? 'Aguarde...' : 'Enviar'}

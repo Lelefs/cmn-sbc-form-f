@@ -8,9 +8,10 @@ export default () => {
       <h1>Mulheres Intercessoras - Comunidade da Graça SBC</h1>
       <ul>
         <li>
-            Nossos encontro presenciais estão de volta ! <br />
-            Seguindo todas as normas de segurança da OMS voltaremos com nossas reuniões precisais.
-            A reunião ocorrerá no dia 13/03 às 15:00 em nossa igreja. Esperemos por vocês ❤
+          Nossos encontro presenciais estão de volta ! <br />
+          Seguindo todas as normas de segurança da OMS voltaremos com nossas
+          reuniões precisais. A reunião ocorrerá no dia 13/03 às 15:00 em nossa
+          igreja. Esperemos por vocês ❤
         </li>
         <li>
           Em caso de dúvidas, entre em contato pelo nosso WhatsApp

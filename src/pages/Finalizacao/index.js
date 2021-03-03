@@ -6,7 +6,7 @@ import {
   ImageDivStaff,
   ImageDivKids,
   ImageDivBemVindo,
-  ImageDivMulheres
+  ImageDivMulheres,
 } from './styles';
 
 const origens = {
@@ -29,7 +29,7 @@ const origens = {
   mulheres: {
     titulo: 'Encontro de Mulheres Intercessoras',
     div: <ImageDivMulheres />,
-  }
+  },
 };
 
 export default props => {

@@ -15,7 +15,7 @@ import {
 
 export default () => {
   const proximoDia = process.env.REACT_APP_DIA;
-  const dataFinal = new Date(2021, 1, proximoDia, 20, 0, 0);
+  const dataFinal = new Date(2021, 2, proximoDia, 20, 0, 0);
 
   const history = useHistory();
   const [loader, setLoader] = useState(false);
@@ -90,6 +90,18 @@ export default () => {
     }
 
     setLoader(true);
+
+    const response = await api.get(
+      `/form/contagem/${proximoDia}/${horarioCulto}`,
+    );
+
+    const { total } = response.data;
+
+    if (total >= 230) {
+      alert('Não foi possível completar sua inscrição. Vagas esgotadas.');
+      setLoader(false);
+      return;
+    }
 
     api
       .post('/form', {
