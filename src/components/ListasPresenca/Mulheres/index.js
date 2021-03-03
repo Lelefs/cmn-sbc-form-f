@@ -15,13 +15,12 @@ export default ({ horarioCulto }) => {
 
   async function carregarUsuarios() {
     setLoader(true);
-    const response = await api.get(`/form/${proximoDia}/${horarioCulto}`);
+    const response = await api.get(`/mulheres/all`);
     response.data.sort(function (a, b) {
       return a.nome < b.nome ? -1 : a.nome > b.nome ? 1 : 0;
     });
-    const responseTotal = await api.get(
-      `/form/contagem/${proximoDia}/${horarioCulto}`,
-    );
+
+    const responseTotal = await api.get(`/mulheres/contagem`);
 
     setUsuarios(response.data);
     setTotal(responseTotal.data.total);
@@ -65,17 +64,23 @@ export default ({ horarioCulto }) => {
           <tr>
             <th>Nº</th>
             <th>Nome</th>
-            <th>Presença</th>
+            <th>Célula</th>
           </tr>
         </thead>
         <tbody>
           {usuarios.map((usuario, i) => (
             <tr key={usuario._id}>
               <td>{i + 1}</td>
+
               <td className={usuario.compareceu ? 'compareceu linha' : 'linha'}>
                 <p>{usuario.nome}</p>
               </td>
+
               <td className={usuario.compareceu ? 'compareceu linha' : 'linha'}>
+                <p>{usuario.celula}</p>
+              </td>
+
+              {/* <td className={usuario.compareceu ? 'compareceu linha' : 'linha'}>
                 {usuario.compareceu ? (
                   <button
                     type="submit"
@@ -91,7 +96,7 @@ export default ({ horarioCulto }) => {
                     <FiCheck color="#fff" />
                   </button>
                 )}
-              </td>
+              </td> */}
             </tr>
           ))}
         </tbody>

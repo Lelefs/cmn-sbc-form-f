@@ -6,6 +6,7 @@ import Diaconos from '../pages/Diaconos';
 import DownloadFile from '../pages/DownloadFile';
 import Finalizacao from '../pages/Finalizacao';
 import ListaPresencas from '../pages/ListasPresenca/Cultos';
+import ListaPresencasMulheres from '../components/ListasPresenca/Mulheres';
 import Main from '../pages/Main';
 import Staff from '../pages/Staff';
 import Mulheres from '../pages/Mulheres';
@@ -19,6 +20,7 @@ export default () => {
       <Route path="/finalizacao" component={Finalizacao} />
       <Route path="/staff" component={Staff} />
       <Route path="/mulheres" component={Mulheres} />
+      <Route path="/lista/mulheres" component={ListaPresencasMulheres} />
 
       <Route path="/lista/manha" component={ListaPresencas} />
       <Route path="/lista/noite" component={ListaPresencas} />
