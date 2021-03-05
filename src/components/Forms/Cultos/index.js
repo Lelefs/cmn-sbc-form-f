@@ -211,7 +211,7 @@ export default () => {
             onChange={handleChangeHorarioCulto}
           />
           <label htmlFor="cultoNoiteInput">
-            Noite, check-in às 17h30, início às 18h
+            Noite, check-in às 16h30, início às 17h
           </label>
         </DivCheckbox>
       </DivLabelInput>
