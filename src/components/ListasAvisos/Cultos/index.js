@@ -18,10 +18,8 @@ export default () => {
           93262-1680.
         </li>
         <li>
-          Os cultos serão realizados de portas fechadas e as portas fecharão
-          pontualmente às 09h30 e 18h, respectivamente. Ambos os cultos serão
-          transmitidos ao vivo em nosso canal do Youtube (Comunidade da Graça
-          SBC).
+          Ambos os cultos serão transmitidos ao vivo em nosso canal do Youtube
+          (Comunidade da Graça SBC).
         </li>
         <li>
           Limite de 230 inscritos por culto. Staff, e ministério de louvor não
