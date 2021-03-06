@@ -1,25 +1,18 @@
 import React, { useState, useCallback } from 'react';
-import { validate } from 'email-validator';
 import { useHistory } from 'react-router-dom';
 import { FiHome, FiUser, FiPhone } from 'react-icons/fi';
 import api from '../../../services/api';
 
-import {
-  Container,
-  DivLabelInput,
-  DivInput,
-  DivCheckbox,
-  Button,
-} from './styles';
+import { Container, DivLabelInput, DivInput, Button } from './styles';
 
 export default () => {
   const history = useHistory();
 
   const [loader, setLoader] = useState(false);
 
-  const [email, setEmail] = useState('');
-  const [emailIsFocused, setEmailIsFocused] = useState(false);
-  const [emailIsErrored, setEmailIsErrored] = useState(false);
+  const [celula, setCelula] = useState('');
+  const [celulaIsFocused, setCelulaIsFocused] = useState(false);
+  const [celulaIsErrored, setCelulaIsErrored] = useState(false);
 
   const [nome, setNome] = useState('');
   const [nomeIsFocused, setNomeIsFocused] = useState(false);
@@ -27,15 +20,13 @@ export default () => {
   const [celular, setCelular] = useState('');
   const [celularIsFocused, setCelularIsFocused] = useState(false);
 
-  const [horarioCulto, setHorarioCulto] = useState('');
-
-  const handledEmailFocus = useCallback(() => {
-    setEmailIsFocused(true);
+  const handledCelulaFocus = useCallback(() => {
+    setCelulaIsFocused(true);
   }, []);
 
-  const handledEmailBlur = useCallback(() => {
-    setEmailIsFocused(false);
-    setEmailIsErrored(false);
+  const handledCelulaBlur = useCallback(() => {
+    setCelulaIsFocused(false);
+    setCelulaIsErrored(false);
   }, []);
 
   const handledNomeFocus = useCallback(() => {
@@ -66,7 +57,7 @@ export default () => {
     api
       .post('/mulheres', {
         nome,
-        celula: email,
+        celula,
         telefone: celular,
       })
       .then(res => {
@@ -82,23 +73,23 @@ export default () => {
   return (
     <Container>
       <DivLabelInput>
-        <label htmlFor="emailInput">
+        <label htmlFor="celulaInput">
           Célula <span>*</span>{' '}
         </label>
         <DivInput
-          isFilled={!!email}
-          isFocused={emailIsFocused}
-          isErrored={emailIsErrored}
+          isFilled={!!celula}
+          isFocused={celulaIsFocused}
+          isErrored={celulaIsErrored}
         >
           <FiHome size={20} />
           <input
             type="text"
-            id="emailInput"
+            id="celulaInput"
             placeholder="Sua célula"
-            value={email}
-            onChange={e => setEmail(e.target.value)}
-            onFocus={handledEmailFocus}
-            onBlur={handledEmailBlur}
+            value={celula}
+            onChange={e => setCelula(e.target.value)}
+            onFocus={handledCelulaFocus}
+            onBlur={handledCelulaBlur}
           />
         </DivInput>
       </DivLabelInput>
@@ -143,7 +134,7 @@ export default () => {
       <Button
         onClick={handleSubmitForm}
         disabled={
-          email === '' || nome === '' || celular === '' || celular.length < 8
+          celula === '' || nome === '' || celular === '' || celular.length < 8
         }
       >
         {loader ? 'Aguarde...' : 'Enviar'}

@@ -1,13 +1,10 @@
-import React, { useEffect, useState, useCallback } from 'react';
-import { FiCheck } from 'react-icons/fi';
+import React, { useEffect, useState } from 'react';
 
 import api from '../../../services/api';
 
 import { Container } from './style';
 
-export default ({ horarioCulto }) => {
-  const proximoDia = process.env.REACT_APP_DIA;
-
+export default () => {
   const [usuarios, setUsuarios] = useState([]);
   const [loader, setLoader] = useState(false);
   const [total, setTotal] = useState(0);
@@ -30,14 +27,6 @@ export default ({ horarioCulto }) => {
 
   useEffect(() => {
     carregarUsuarios();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  const handleToggleCheckin = useCallback(async (usuario, simNao) => {
-    setLoader(true);
-    await api.put('/form', { _id: usuario._id, compareceuSimNao: simNao });
-    carregarUsuarios();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
