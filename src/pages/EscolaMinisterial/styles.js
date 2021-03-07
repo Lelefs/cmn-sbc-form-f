@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import img from '../../assets/banner-escola-ministerial.jpeg';
+import img from '../../assets/escola-ministerial.jpeg';
 
 export const Container = styled.div`
   padding: 20px;
@@ -19,5 +19,9 @@ export const ImageEscolaMinisterial = styled.div`
   width: 650px;
   background-size: cover;
   margin-bottom: 15px;
-  background-position-y: 3px;
+  background-position-y: -80px;
+
+  @media only screen and (max-width: 500px) {
+    background-position-y: -55px;
+  }
 `;
