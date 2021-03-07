@@ -9,6 +9,8 @@ import {
   ImageDivMulheres,
 } from './styles';
 
+import { ImageEscolaMinisterial } from '../EscolaMinisterial/styles';
+
 const origens = {
   comunaKids: {
     titulo: 'Drive-in de dia das crianças',
@@ -29,6 +31,10 @@ const origens = {
   mulheres: {
     titulo: 'Encontro de Mulheres Intercessoras',
     div: <ImageDivMulheres />,
+  },
+  escolaMinisterial: {
+    titulo: 'Escola ministerial projeto IDE',
+    div: <ImageEscolaMinisterial />,
   },
 };
 

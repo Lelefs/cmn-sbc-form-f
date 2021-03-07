@@ -90,7 +90,7 @@ export default () => {
       })
       .then(res => {
         setLoader(false);
-        history.push('/finalizacao', { origem: 'staff' });
+        history.push('/finalizacao', { origem: 'escolaMinisterial' });
       })
       .catch(e => {
         const { error } = e.response.data;
