@@ -3,15 +3,16 @@ import React from 'react';
 import { Container } from './styles';
 
 export default () => {
+  const diaCulto = String(process.env.REACT_APP_DIA).padStart(2, '0').split('');
+
   return (
     <Container>
       <h1>Culto presencial Comunidade da Graça SBC</h1>
       <ul>
         <li>
           Atendendo às normas de segurança em nossa cidade, será necessário
-          agendar a sua presença em um dos cultos deste domingo&nbsp; 0
-          {process.env.REACT_APP_DIA}/03, limitando à quantidade permitida por
-          lei.
+          agendar a sua presença em um dos cultos deste domingo&nbsp;
+          {diaCulto}/03, limitando à quantidade permitida por lei.
         </li>
         <li>
           Em caso de dúvidas, entre em contato pelo nosso WhatsApp (11)
