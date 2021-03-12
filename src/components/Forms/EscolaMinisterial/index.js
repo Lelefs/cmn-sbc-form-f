@@ -1,17 +1,21 @@
 import React, { useState, useCallback } from 'react';
-import { isAfter } from 'date-fns';
 import { useHistory } from 'react-router-dom';
 import { FiUser } from 'react-icons/fi';
 import { HiOutlineUserGroup } from 'react-icons/hi';
 import { TiSortNumerically } from 'react-icons/ti';
 import api from '../../../services/api';
 
-import { Container, DivLabelInput, DivInput, Button } from './styles';
+import {
+  Container,
+  DivLabelInput,
+  DivInput,
+  Button,
+  DivCheckbox,
+} from './styles';
 
 export default () => {
   const history = useHistory();
   const [loader, setLoader] = useState(false);
-  const dataFinal = new Date(2021, 2, 14, 23, 59, 59);
 
   const [nome, setNome] = useState('');
   const [nomeIsFocused, setNomeIsFocused] = useState(false);
@@ -26,6 +30,10 @@ export default () => {
 
   const [telefone, setTelefone] = useState('');
   const [telefoneIsFocused, setTelefoneIsFocused] = useState(false);
+
+  const [liderAuxiliar, setLiderAuxiliar] = useState(true);
+
+  const [pretendeSerLider, setPretendeSerLider] = useState(false);
 
   const handledNomeFocus = useCallback(() => {
     setNomeIsFocused(true);
@@ -64,15 +72,28 @@ export default () => {
     setTempoComunidadeIsFocused(false);
   }, []);
 
+  function handleChangeLiderAuxiliar(event) {
+    const { target } = event;
+
+    if (target.name === 'sim') {
+      setLiderAuxiliar(true);
+    } else {
+      setLiderAuxiliar(false);
+    }
+  }
+
+  function handleChangePretendeSerLider(event) {
+    const { target } = event;
+
+    if (target.name === 'sim') {
+      setPretendeSerLider(true);
+    } else {
+      setPretendeSerLider(false);
+    }
+  }
+
   const handleSubmitForm = async event => {
     event.preventDefault();
-    const hoje = new Date();
-
-    if (isAfter(hoje, dataFinal)) {
-      return alert(
-        'Não foi possível completar sua inscrição. Já expirou o prazo.',
-      );
-    }
 
     if (telefone.length < 10 || telefone.length > 11) {
       alert('Insira um telefone válido');
@@ -87,6 +108,8 @@ export default () => {
         celula,
         tempoComunidade,
         telefone,
+        liderAuxiliar,
+        pretendeSerLider,
       })
       .then(res => {
         setLoader(false);
@@ -179,6 +202,62 @@ export default () => {
           />
         </DivInput>
       </DivLabelInput>
+
+      <DivLabelInput>
+        <label>
+          É líder ou auxiliar? <span>*</span>
+        </label>
+        <DivCheckbox>
+          <input
+            type="radio"
+            id="simLiderAuxiliarInput"
+            name="sim"
+            checked={liderAuxiliar}
+            onChange={handleChangeLiderAuxiliar}
+          />
+          <label htmlFor="simLiderAuxiliarInput">Sim</label>
+        </DivCheckbox>
+
+        <DivCheckbox>
+          <input
+            type="radio"
+            id="naoLiderAuxiliarInput"
+            name="nao"
+            checked={!liderAuxiliar}
+            onChange={handleChangeLiderAuxiliar}
+          />
+          <label htmlFor="naoLiderAuxiliarInput">Não</label>
+        </DivCheckbox>
+      </DivLabelInput>
+
+      {!liderAuxiliar && (
+        <DivLabelInput>
+          <label>
+            Pretende ser líder de célula? <span>*</span>
+          </label>
+          <DivCheckbox>
+            <input
+              type="radio"
+              id="simPretendeSerLiderInput"
+              name="sim"
+              checked={pretendeSerLider}
+              onChange={handleChangePretendeSerLider}
+            />
+            <label htmlFor="simPretendeSerLiderInput">Sim</label>
+          </DivCheckbox>
+
+          <DivCheckbox>
+            <input
+              type="radio"
+              id="naoPretendeSerLiderInput"
+              name="nao"
+              checked={!pretendeSerLider}
+              onChange={handleChangePretendeSerLider}
+            />
+            <label htmlFor="naoPretendeSerLiderInput">Não</label>
+          </DivCheckbox>
+        </DivLabelInput>
+      )}
 
       <Button
         onClick={handleSubmitForm}
