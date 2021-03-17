@@ -38,41 +38,13 @@ export const Container = styled.div`
     border-collapse: collapse;
 
     th {
-      padding: 10px;
+      padding: 0.625rem;
     }
 
     td {
       border-top: 1px solid #ccc;
       text-align: center;
-    }
-
-    .linha {
-      padding: 10px 0 10px 10px;
-      text-align: left;
-
-      & + td {
-        padding: 10px 10px 10px 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      p {
-        white-space: nowrap;
-        width: 100%;
-        max-width: 300px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
-
-      button {
-        padding: 5px;
-        color: #fff;
-        border: 0;
-        background-color: #34a853;
-        border-radius: 4px;
-        height: 26px;
-      }
+      padding: 0.625rem;
     }
 
     .compareceu {
@@ -81,15 +53,6 @@ export const Container = styled.div`
 
       button {
         background-color: #a7a7a7;
-      }
-    }
-  }
-
-  @media only screen and (max-width: 500px) {
-    table {
-      .linha p {
-        width: 200px;
-        font-size: 14px;
       }
     }
   }

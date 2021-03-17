@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import api from '../../../services/api';
 
-import { Container } from './style';
+import { Container } from './styles';
 
 export default () => {
   const [usuarios, setUsuarios] = useState([]);
@@ -43,17 +43,39 @@ export default () => {
             <th>Nº</th>
             <th>Nome</th>
             <th>Célula</th>
+            <th>Tempo comunidade</th>
+            <th>Telefone</th>
+            <th>Líder/Aux</th>
+            <th>Pretende ser líder</th>
           </tr>
         </thead>
         <tbody>
           {usuarios.map((usuario, i) => (
             <tr key={usuario._id}>
               <td>{i + 1}</td>
-              <td className="linha">
+              <td>
                 <p>{usuario.nome}</p>
               </td>
-              <td className="linha">
+              <td>
                 <p>{usuario.celula}</p>
+              </td>
+              <td>
+                <p>{usuario.tempoComunidade}</p>
+              </td>
+              <td>
+                <p>{usuario.telefone}</p>
+              </td>
+              <td>
+                <p>{usuario.liderAuxiliar ? 'Sim' : 'Não'}</p>
+              </td>
+              <td>
+                <p>
+                  {usuario.liderAuxiliar
+                    ? '-'
+                    : usuario.pretendeSerLider
+                    ? 'Sim'
+                    : 'Não'}
+                </p>
               </td>
             </tr>
           ))}
