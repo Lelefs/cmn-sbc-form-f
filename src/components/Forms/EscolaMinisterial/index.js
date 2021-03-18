@@ -1,76 +1,20 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useRef } from 'react';
 import { useHistory } from 'react-router-dom';
-import { FiUser } from 'react-icons/fi';
-import { HiOutlineUserGroup } from 'react-icons/hi';
-import { TiSortNumerically } from 'react-icons/ti';
+import * as Yup from 'yup';
 import api from '../../../services/api';
 
-import {
-  Container,
-  DivLabelInput,
-  DivInput,
-  Button,
-  DivCheckbox,
-} from './styles';
+import Input from '../../Input';
+
+import { Container, DivLabelInput, Button, DivCheckbox } from './styles';
 
 export default () => {
   const history = useHistory();
+  const formRef = useRef(null);
   const [loader, setLoader] = useState(false);
-
-  const [nome, setNome] = useState('');
-  const [nomeIsFocused, setNomeIsFocused] = useState(false);
-
-  const [celula, setCelula] = useState('');
-  const [celulaIsFocused, setCelulaIsFocused] = useState(false);
-
-  const [tempoComunidade, setTempoComunidade] = useState('');
-  const [tempoComunidadeIsFocused, setTempoComunidadeIsFocused] = useState(
-    false,
-  );
-
-  const [telefone, setTelefone] = useState('');
-  const [telefoneIsFocused, setTelefoneIsFocused] = useState(false);
 
   const [liderAuxiliar, setLiderAuxiliar] = useState(true);
 
   const [pretendeSerLider, setPretendeSerLider] = useState(false);
-
-  const handledNomeFocus = useCallback(() => {
-    setNomeIsFocused(true);
-  }, []);
-
-  const handledNomeBlur = useCallback(() => {
-    setNomeIsFocused(false);
-  }, []);
-
-  const handledTelefoneFocus = useCallback(() => {
-    setTelefoneIsFocused(true);
-  }, []);
-
-  const handledTelefoneBlur = useCallback(() => {
-    if (telefone.length > 11) {
-      const novoTelefone = telefone.slice(0, 11);
-      setTelefone(novoTelefone);
-    }
-
-    setTelefoneIsFocused(false);
-  }, [telefone]);
-
-  const handledCelulaFocus = useCallback(() => {
-    setCelulaIsFocused(true);
-  }, []);
-
-  const handledCelulaBlur = useCallback(() => {
-    setCelulaIsFocused(false);
-  }, []);
-
-  const handledTempoComunidadeFocus = useCallback(() => {
-    setTempoComunidadeIsFocused(true);
-  }, []);
-
-  const handledTempoComunidadeBlur = useCallback(() => {
-    setTempoComunidadeIsFocused(false);
-  }, []);
 
   function handleChangeLiderAuxiliar(event) {
     const { target } = event;
@@ -92,116 +36,83 @@ export default () => {
     }
   }
 
-  const handleSubmitForm = async event => {
-    event.preventDefault();
+  const handleSubmit = useCallback(
+    async data => {
+      if (loader) return;
 
-    if (telefone.length < 10 || telefone.length > 11) {
-      alert('Insira um telefone válido');
-      return;
-    }
+      setLoader(true);
 
-    setLoader(true);
+      try {
+        formRef.current.setErrors({});
 
-    api
-      .post('/escolaministerial', {
-        nome,
-        celula,
-        tempoComunidade,
-        telefone,
-        liderAuxiliar,
-        pretendeSerLider,
-      })
-      .then(res => {
+        const schema = Yup.object().shape({
+          nome: Yup.string().required('Campo obrigatório'),
+          telefone: Yup.string()
+            .min(9, 'Digite um número válido')
+            .max(12, 'Digite um número válido')
+            .required('Campo obrigatório'),
+          celula: Yup.string().required('Campo obrigatório'),
+          tempoComunidade: Yup.string().required('Campo obrigatório'),
+        });
+
+        await schema.validate(data, {
+          abortEarly: false,
+        });
+
+        await api.post('/escolaministerial', {
+          nome: data.nome,
+          celula: data.celula,
+          tempoComunidade: data.tempoComunidade,
+          telefone: data.telefone,
+          liderAuxiliar,
+          pretendeSerLider,
+        });
+
         setLoader(false);
         history.push('/finalizacao', { origem: 'escolaMinisterial' });
-      })
-      .catch(e => {
-        const { error } = e.response.data;
-        alert(error);
-        setLoader(false);
-      });
-  };
+      } catch (err) {
+        const validationErrors = {};
+
+        if (err instanceof Yup.ValidationError) {
+          err.inner.forEach(error => {
+            validationErrors[error.path] = error.message;
+          });
+          formRef.current.setErrors(validationErrors);
+        } else {
+          const { error } = err.response.data;
+          alert(error);
+          setLoader(false);
+        }
+      }
+    },
+    [loader, history, liderAuxiliar, pretendeSerLider],
+  );
 
   return (
-    <Container>
-      <DivLabelInput>
-        <label htmlFor="nomeInput">
-          Nome completo
-          <span> *</span>
-        </label>
-        <DivInput isFilled={!!nome} isFocused={nomeIsFocused}>
-          <FiUser size={20} />
-          <input
-            type="text"
-            id="nomeInput"
-            placeholder="Nome completo"
-            value={nome}
-            onChange={e => setNome(e.target.value)}
-            onFocus={handledNomeFocus}
-            onBlur={handledNomeBlur}
-          />
-        </DivInput>
-      </DivLabelInput>
+    <Container ref={formRef} onSubmit={handleSubmit}>
+      <Input
+        name="nome"
+        label="Nome completo"
+        Icon="nome"
+        placeholder="Nome completo"
+      />
 
-      <DivLabelInput>
-        <label htmlFor="telefoneInput">
-          Celular
-          <span> *</span>
-        </label>
-        <DivInput isFilled={!!telefone} isFocused={telefoneIsFocused}>
-          <TiSortNumerically size={20} />
-          <input
-            type="number"
-            id="telefoneInput"
-            placeholder="Celular"
-            value={telefone}
-            onChange={e => setTelefone(e.target.value)}
-            onFocus={handledTelefoneFocus}
-            onBlur={handledTelefoneBlur}
-          />
-        </DivInput>
-      </DivLabelInput>
+      <Input
+        name="telefone"
+        label="Celular"
+        Icon="telefone"
+        placeholder="Celular"
+        type="number"
+      />
 
-      <DivLabelInput>
-        <label htmlFor="celulaInput">
-          Célula
-          <span> *</span>
-        </label>
-        <DivInput isFilled={!!celula} isFocused={celulaIsFocused}>
-          <HiOutlineUserGroup size={20} />
-          <input
-            type="text"
-            id="celulaInput"
-            placeholder="Célula"
-            value={celula}
-            onChange={e => setCelula(e.target.value)}
-            onFocus={handledCelulaFocus}
-            onBlur={handledCelulaBlur}
-          />
-        </DivInput>
-      </DivLabelInput>
+      <Input name="celula" label="Célula" Icon="celula" placeholder="Célula" />
 
-      <DivLabelInput>
-        <label htmlFor="tempoComunidadeInput">
-          Tempo de Comunidade da Graça SBC
-          <span> *</span>
-        </label>
-        <DivInput
-          isFilled={!!tempoComunidade}
-          isFocused={tempoComunidadeIsFocused}
-        >
-          <TiSortNumerically size={20} />
-          <input
-            type="text"
-            id="tempoComunidadeInput"
-            placeholder="tempoComunidade"
-            value={tempoComunidade}
-            onChange={e => setTempoComunidade(e.target.value)}
-            onFocus={handledTempoComunidadeFocus}
-            onBlur={handledTempoComunidadeBlur}
-          />
-        </DivInput>
-      </DivLabelInput>
+      <Input
+        name="tempoComunidade"
+        label="Tempo de comunidade"
+        Icon="tempoComunidade"
+        placeholder="Tempo de comunidade da Graça SBC"
+      />
 
       <DivLabelInput>
         <label>
@@ -259,16 +170,7 @@ export default () => {
         </DivLabelInput>
       )}
 
-      <Button
-        onClick={handleSubmitForm}
-        disabled={
-          nome === '' ||
-          telefone === '' ||
-          celula === '' ||
-          tempoComunidade === '' ||
-          loader
-        }
-      >
+      <Button onClick={handleSubmit} disabled={loader}>
         {loader ? 'Aguarde...' : 'Enviar'}
       </Button>
     </Container>

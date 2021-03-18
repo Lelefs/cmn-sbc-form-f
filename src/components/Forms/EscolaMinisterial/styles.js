@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
+import { Form } from '@unform/web';
 
-export const Container = styled.form`
+export const Container = styled(Form)`
   padding: 20px;
   width: 100%;
   max-width: 650px;

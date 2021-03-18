@@ -9,6 +9,13 @@ export default createGlobalStyle`
     box-sizing: border-box;
   }
 
+  :root {
+    --verde: #34a853;
+    --branco: #fff;
+    --erro: #c53030;
+    --preto: #666360;
+  }
+
   body {
     -webkit-font-smoothing: antialiased;
   }
