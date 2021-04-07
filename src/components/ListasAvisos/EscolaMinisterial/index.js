@@ -8,14 +8,14 @@ export default () => {
       <h1>Escola ministerial projeto IDE</h1>
       <ul>
         <li>
-          Todos os domingos na sala pastoral um grupo de 15 alunos estarão sendo
+          Aos domingos via zoom um grupo de 15 alunos estarão sendo
           inspirados pelo irmão Lindemberg através do material “Maturidade
           Cristã”.
         </li>
         <li>Limite de vaga 15 pessoas por turma.</li>
         <li>Duração do curso: 3 meses</li>
         <li>Horário: 08h00 às 09h30</li>
-        <li>Início do curso no dia 21/03/2021</li>
+        <li>Início do curso no dia 11/04/2021</li>
         <li>
           <b>IMPORTANTE</b>
         </li>
