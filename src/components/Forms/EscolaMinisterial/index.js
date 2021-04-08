@@ -78,6 +78,7 @@ export default () => {
             validationErrors[error.path] = error.message;
           });
           formRef.current.setErrors(validationErrors);
+          setLoader(false);
         } else {
           const { error } = err.response.data;
           alert(error);
@@ -170,7 +171,7 @@ export default () => {
         </DivLabelInput>
       )}
 
-      <Button onClick={handleSubmit} disabled={loader}>
+      <Button type="submit" disabled={loader}>
         {loader ? 'Aguarde...' : 'Enviar'}
       </Button>
     </Container>
