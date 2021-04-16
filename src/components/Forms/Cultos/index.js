@@ -15,7 +15,7 @@ import {
 
 export default () => {
   const proximoDia = process.env.REACT_APP_DIA;
-  const dataFinal = new Date(2021, 2, proximoDia, 20, 0, 0);
+  const dataFinal = new Date(2021, 4, proximoDia, 20, 0, 0);
 
   const history = useHistory();
   const [loader, setLoader] = useState(false);
@@ -97,7 +97,7 @@ export default () => {
 
     const { total } = response.data;
 
-    if (total >= 230) {
+    if (total >= 200) {
       alert('Não foi possível completar sua inscrição. Vagas esgotadas.');
       setLoader(false);
       return;
@@ -211,7 +211,7 @@ export default () => {
             onChange={handleChangeHorarioCulto}
           />
           <label htmlFor="cultoNoiteInput">
-            Noite, check-in às 16h30, início às 17h
+            Noite, check-in às 17h30, início às 18h
           </label>
         </DivCheckbox>
       </DivLabelInput>
