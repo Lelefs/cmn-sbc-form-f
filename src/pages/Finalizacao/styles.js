@@ -108,3 +108,37 @@ export const MainContainer = styled.div`
     color: #2671ff;
   }
 `;
+
+
+export const ImageDivMAG = styled.div`
+  background-image: url(${imgMulheres});
+  border-radius: 8px;
+  max-height: 22.390243902439025vw;
+  max-width: 90vw;
+  height: 159.21951219512195px;
+  width: 650px;
+  background-size: cover;
+  margin-bottom: 15px;
+  background-position-y: -70px;
+
+  @media only screen and (max-width: 500px) {
+    background-position-y: -40px;
+  }
+`;
+
+
+export const ImageDivMAGOneWay = styled.div`
+  background-image: url(${imgMulheres});
+  border-radius: 8px;
+  max-height: 22.390243902439025vw;
+  max-width: 90vw;
+  height: 159.21951219512195px;
+  width: 650px;
+  background-size: cover;
+  margin-bottom: 15px;
+  background-position-y: -70px;
+
+  @media only screen and (max-width: 500px) {
+    background-position-y: -40px;
+  }
+`;

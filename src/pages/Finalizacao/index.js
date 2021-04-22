@@ -7,6 +7,8 @@ import {
   ImageDivKids,
   ImageDivBemVindo,
   ImageDivMulheres,
+  ImageDivMAG,
+  ImageDivMAGOneWay
 } from './styles';
 
 import { ImageEscolaMinisterial } from '../EscolaMinisterial/styles';
@@ -36,6 +38,14 @@ const origens = {
     titulo: 'Escola ministerial projeto IDE',
     div: <ImageEscolaMinisterial />,
   },
+  mag: {
+    titulo: 'MAG SBC Presencial',
+    div: <ImageDivMAG />
+  },
+  magOneWay: {
+    titulo: 'MAG One Way',
+    div: <ImageDivMAGOneWay />
+  }
 };
 
 export default props => {
