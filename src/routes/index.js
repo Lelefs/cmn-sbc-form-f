@@ -15,7 +15,6 @@ import EscolaMinisterial from '../pages/EscolaMinisterial';
 import Mag from '../pages/Mag';
 import MagOneWay from '../pages/MagOneWay';
 
-
 export default () => {
   return (
     <Switch>
