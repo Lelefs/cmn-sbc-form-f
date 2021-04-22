@@ -4,6 +4,8 @@ import imgStaff from '../../assets/banner-staff.jpeg';
 import imgKids from '../../assets/banner-drive-in.jpg';
 import imgBemVindo from '../../assets/banner-bem-vindo.jpg';
 import imgMulheres from '../../assets/mulheres.jpg';
+import imgMag from '../../assets/ONE-WAY.jpeg';
+import imgMagOneWay from '../../assets/MAG.jpeg';
 
 export const Container = styled.div`
   padding: 20px;
@@ -111,7 +113,7 @@ export const MainContainer = styled.div`
 
 
 export const ImageDivMAG = styled.div`
-  background-image: url(${imgMulheres});
+  background-image: url(${imgMag});
   border-radius: 8px;
   max-height: 22.390243902439025vw;
   max-width: 90vw;
@@ -128,7 +130,7 @@ export const ImageDivMAG = styled.div`
 
 
 export const ImageDivMAGOneWay = styled.div`
-  background-image: url(${imgMulheres});
+  background-image: url(${imgMagOneWay});
   border-radius: 8px;
   max-height: 22.390243902439025vw;
   max-width: 90vw;
