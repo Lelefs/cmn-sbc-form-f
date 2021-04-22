@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import img from '../../assets/MAG.jpeg';
+import img from '../../assets/ONE-WAY.jpeg';
 
 export const Container = styled.div`
   padding: 20px;
