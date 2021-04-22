@@ -17,9 +17,6 @@ export default () => {
           (11)94146-6059.
         </li>
         <li>
-          O encontro também será transmitido ao vivo em nosso canal do Youtube (MAG SBC).
-        </li>
-        <li>
           Limite de 200 inscritos. Staff, e ministério de louvor não precisam fazer a inscrição.
         </li>
         <li>
