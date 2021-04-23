@@ -8,6 +8,8 @@ import Finalizacao from '../pages/Finalizacao';
 import ListaPresencas from '../pages/ListasPresenca/Cultos';
 import ListaPresencasEscolaMinisterial from '../pages/ListasPresenca/EscolaMinisterial';
 import ListaPresencasMulheres from '../components/ListasPresenca/Mulheres';
+import ListasPresencaMag from '../pages/ListasPresenca/MAG';
+import ListasPresencaMagOneWay from '../pages/ListasPresenca/MAGOneWay';
 import Main from '../pages/Main';
 import Staff from '../pages/Staff';
 import Mulheres from '../pages/Mulheres';
@@ -35,6 +37,8 @@ export default () => {
       />
       <Route path="/lista/manha" component={ListaPresencas} />
       <Route path="/lista/noite" component={ListaPresencas} />
+      <Route path="/lista/mag" component={ListasPresencaMag} />
+      <Route path="/lista/magOneWay" component={ListasPresencaMagOneWay} />
       <Route path="*">
         <Redirect to="/" />
       </Route>
